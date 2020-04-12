@@ -1,0 +1,330 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scene/Grid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Level01.gd" type="Script" id=3]
+[ext_resource path="res://Scene/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scene/Pause_Menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Experimental_Assets/fonts/Quantico/Quantico-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Experimental_Assets/fonts/Orbitron/Orbitron-VariableFont:wght.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Assets/Grid001.png" type="Texture" id=8]
+[ext_resource path="res://Music/game.music.wav" type="AudioStream" id=9]
+[ext_resource path="res://Scene/PowerUp.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Music/click_001.ogg" type="AudioStream" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Game_over"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Game_OVER/Game_Over:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.137255, 0.133333, 0.133333, 0 ), Color( 0.172549, 0.168627, 0.168627, 0.180392 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Game_OVER/Game_over_text:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 577.5, -2 ), Vector2( 577.5, 164 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Game_OVER/Final_score:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1476, 329 ), Vector2( 636, 329 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Game_OVER/Game_Over:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Game_OVER/TextureRect:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -175, 40 ), Vector2( -1, 13 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Game_OVER/TextureRect:rect_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1000, 1000 ), Vector2( 3000, 3000 ), Vector2( 18650, 12030 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Game_OVER:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Game_OVER/Retry:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -257, 424 ), Vector2( 734, 424 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Game_OVER/Main_Menu:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1632, 488 ), Vector2( 734, 488 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="InputEventKey" id=6]
+scancode = 16777221
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
+
+[sub_resource type="InputEventKey" id=8]
+scancode = 16777217
+
+[sub_resource type="ShortCut" id=9]
+shortcut = SubResource( 8 )
+
+[node name="temp" type="Node2D"]
+script = ExtResource( 3 )
+enemy = ExtResource( 4 )
+Player = ExtResource( 1 )
+PowerUp = ExtResource( 10 )
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.0784314 )
+margin_left = -313.0
+margin_top = -135.0
+margin_right = 32387.0
+margin_bottom = 17445.0
+rect_scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 8 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" parent="." instance=ExtResource( 2 )]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.344
+one_shot = true
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 521, 247 )
+current = true
+zoom = Vector2( 0.9, 0.9 )
+
+[node name="UI" type="Control" parent="Camera2D"]
+margin_left = -458.0
+margin_top = -269.0
+margin_right = 461.0
+margin_bottom = 271.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="Camera2D/UI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -52.5
+margin_top = 20.0
+margin_right = 81.5
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 1 )
+text = "Score : 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Game_over = SubResource( 2 )
+
+[node name="Game_OVER" type="Control" parent="."]
+margin_left = -312.0
+margin_top = -148.0
+margin_right = 1533.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game_Over" type="ColorRect" parent="Game_OVER"]
+modulate = Color( 0.67451, 0.67451, 0.67451, 1 )
+margin_left = -336.0
+margin_top = -169.0
+margin_right = 2482.0
+margin_bottom = 1201.0
+color = Color( 0.163725, 0.159803, 0.159803, 0.135294 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Game_OVER"]
+modulate = Color( 1, 1, 1, 0.235294 )
+margin_left = -1.0
+margin_top = 13.0
+margin_right = 14177.6
+margin_bottom = 9463.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 8 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game_over_text" type="Label" parent="Game_OVER"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -345.0
+margin_top = 164.0
+margin_right = 201.0
+margin_bottom = 263.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.988235, 0.972549, 0.972549, 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Final_score" type="Label" parent="Game_OVER"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -286.5
+margin_top = 329.0
+margin_right = 103.5
+margin_bottom = 376.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.988235, 0.972549, 0.972549, 1 )
+text = "Score :"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" type="Button" parent="Game_OVER"]
+margin_left = 403.667
+margin_top = 424.0
+margin_right = 599.667
+margin_bottom = 477.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.952941, 0.941176, 0.941176, 1 )
+custom_colors/font_color_hover = Color( 0.290196, 0.290196, 0.290196, 1 )
+custom_colors/font_color_pressed = Color( 0.956863, 0.258824, 0.258824, 1 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 7 )
+text = "Retry"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main_Menu" type="Button" parent="Game_OVER"]
+margin_left = 1033.33
+margin_top = 488.0
+margin_right = 1229.33
+margin_bottom = 541.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.952941, 0.941176, 0.941176, 1 )
+custom_colors/font_color_hover = Color( 0.290196, 0.290196, 0.290196, 1 )
+custom_colors/font_color_pressed = Color( 0.956863, 0.258824, 0.258824, 1 )
+shortcut = SubResource( 9 )
+text = "Main Menu"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause_Menu" parent="." instance=ExtResource( 5 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="PowerupTimer" type="Timer" parent="."]
+wait_time = 12.0
+
+[node name="Click_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Score_timer" to="." method="_on_Score_timeout"]
+[connection signal="button_down" from="Game_OVER/Retry" to="." method="_on_Retry_button_down"]
+[connection signal="button_down" from="Game_OVER/Main_Menu" to="." method="_on_Main_Menu_button_down"]
+[connection signal="timeout" from="PowerupTimer" to="." method="_on_PowerupTimer_timeout"]
