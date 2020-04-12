@@ -5,8 +5,6 @@ var Startpos =Vector2.ZERO
 var endpos = Vector2.ZERO
 var Colors = [Color(0.90,0.99,0.31), Color(0.41,0.99,0.31),Color(0.60,0.31,0.99),Color(0.99,0.21,0.21)]
 func _ready() -> void:
-	if Data.Sound :
-		$AudioStreamPlayer2D.play()
 	var col = randi() % Colors.size()
 	$Enemy.modulate = Colors[col]
 	if !Data.performance :
